@@ -3,6 +3,8 @@ package id.ac.umn.hidayat.projectuas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -14,6 +16,8 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    database db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout qr_code = (LinearLayout) findViewById(R.id.qr_code);
         LinearLayout cameraView = (LinearLayout) findViewById(R.id.camera_view);
         LinearLayout transaksi = (LinearLayout) findViewById(R.id.transaksi);
+
+        db = new database(this);
+//        database g = new database(this);
+//        SQLiteDatabase db = g.getReadableDatabase();
 
         qr_code.setOnClickListener(new View.OnClickListener() {
             @Override
