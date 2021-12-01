@@ -56,18 +56,18 @@ public class register extends AppCompatActivity {
                     registerUser(txt_email, txt_password);
                 }
 
-//                Button showpassword = findViewById(R.id.showPass);
-//                showpassword.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        if(password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
-//                            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-//                        }
-//                        else{
-//                            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-//                        }
-//                    }
-//                });
+                Button showpassword = findViewById(R.id.showPass);
+                showpassword.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        }
+                        else{
+                            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        }
+                    }
+                });
             }
         });
     }
