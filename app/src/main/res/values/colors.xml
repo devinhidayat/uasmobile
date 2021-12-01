@@ -12,4 +12,5 @@
     <color name="qr_generator">#3ED598</color>
     <color name="yellow_background">#FFC542</color>
     <color name="footer">#30444E</color>
+    <color name="gray">#cccccc</color>
 </resources>

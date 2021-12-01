@@ -16,7 +16,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    database db;
+//    database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout cameraView = (LinearLayout) findViewById(R.id.camera_view);
         LinearLayout transaksi = (LinearLayout) findViewById(R.id.transaksi);
 
-        db = new database(this);
-//        database g = new database(this);
-//        SQLiteDatabase db = g.getReadableDatabase();
+//        db = new database(this);
+        database g = new database(this);
+        SQLiteDatabase db = g.getReadableDatabase();
 
         qr_code.setOnClickListener(new View.OnClickListener() {
             @Override

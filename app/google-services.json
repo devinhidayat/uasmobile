@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "489584061858",
+    "project_id": "mobileapp-bd3b7",
+    "storage_bucket": "mobileapp-bd3b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489584061858:android:d0d0d7468873e8bdf216fb",
+        "android_client_info": {
+          "package_name": "id.ac.umn.hidayat.projectuas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489584061858-1ic35cper7897ai9o4j26gdr0jourhpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGNBTZb66kPEB80mi8cChTQ71kpD43jek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489584061858-1ic35cper7897ai9o4j26gdr0jourhpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

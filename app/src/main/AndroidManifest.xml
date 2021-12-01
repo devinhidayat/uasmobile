@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUas">
         <activity
+            android:name=".login"
+            android:exported="true" />
+        <activity
+            android:name=".register"
+            android:exported="true" />
+        <activity
             android:name=".transaksi"
             android:exported="true" />
         <activity
