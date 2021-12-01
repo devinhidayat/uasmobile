@@ -44,7 +44,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold"
-            android:text="check_in"
+            android:text="03:00"
             android:id="@+id/check_in"/>
 
         <TextView
@@ -76,7 +76,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold"
-            android:text="total"
+            android:text="Rp.15.000"
             android:id="@+id/total"/>
     </LinearLayout>
 

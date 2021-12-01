@@ -42,6 +42,13 @@
         android:padding="10dp"
         android:id="@+id/password"/>
 
+
+    <Button
+        android:id="@+id/showPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Password" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

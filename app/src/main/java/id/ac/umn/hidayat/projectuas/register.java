@@ -7,14 +7,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+
 
 public class register extends AppCompatActivity {
 
@@ -35,6 +41,7 @@ public class register extends AppCompatActivity {
         register = findViewById(R.id.register);
         auth = FirebaseAuth.getInstance();
 
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +55,19 @@ public class register extends AppCompatActivity {
                 } else {
                     registerUser(txt_email, txt_password);
                 }
+
+//                Button showpassword = findViewById(R.id.showPass);
+//                showpassword.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        if(password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+//                            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+//                        }
+//                        else{
+//                            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//                        }
+//                    }
+//                });
             }
         });
     }
