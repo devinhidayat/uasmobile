@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout qr_code = (LinearLayout) findViewById(R.id.qr_code);
         LinearLayout cameraView = (LinearLayout) findViewById(R.id.camera_view);
         LinearLayout transaksi = (LinearLayout) findViewById(R.id.transaksi);
+        LinearLayout register = (LinearLayout) findViewById(R.id.register);
 
 //        db = new database(this);
         database g = new database(this);
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,transaksi.class);
+                startActivity(intent);
+            }
+        }));
+
+        register.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,register.class);
                 startActivity(intent);
             }
         }));

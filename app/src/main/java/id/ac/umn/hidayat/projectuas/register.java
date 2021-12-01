@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 
 public class register extends AppCompatActivity {
 
-    private EditText nama;
+//    private EditText nama;
     private EditText email;
     private EditText password;
     private Button register;
@@ -29,7 +29,7 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        nama = findViewById(R.id.nama);
+//        nama = findViewById(R.id.nama);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
