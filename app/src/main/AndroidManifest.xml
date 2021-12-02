@@ -13,7 +13,7 @@
             android:name=".login"
             android:exported="true" />
         <activity
-            android:name=".register"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".transaksi"
@@ -25,7 +25,7 @@
             android:name=".qr_code"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

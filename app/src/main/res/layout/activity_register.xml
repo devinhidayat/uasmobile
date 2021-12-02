@@ -9,59 +9,81 @@
     android:layout_height="match_parent"
     tools:context=".register">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="100dp"
-        android:src="@drawable/ic_vecteezy_account_login_line_icon_new_user_register_"/>
-
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Nama"
-        android:padding="10dp"
-        android:id="@+id/nama"/>
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Email"
-        android:padding="10dp"
-        android:id="@+id/email"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginBottom="100dp"
+                android:src="@drawable/ic_vecteezy_account_login_line_icon_new_user_register_"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Password"
-        android:padding="10dp"
-        android:id="@+id/password"/>
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/edit_text_background"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:hint="Nama"-->
+<!--                android:padding="10dp"-->
+<!--                android:id="@+id/nama"/>-->
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginTop="15dp"
+                android:hint="Email"
+                android:padding="10dp"
+                android:id="@+id/email"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginTop="15dp"
+                android:hint="Password"
+                android:padding="10dp"
+                android:inputType="textPassword"
+                android:id="@+id/password"/>
 
 
-    <Button
-        android:id="@+id/showPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show Password" />
+            <Button
+                android:id="@+id/showPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Show Password" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:text="REGISTER"
-        android:padding="15dp"
-        android:id="@+id/register"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:text="REGISTER"
+                android:padding="15dp"
+                android:id="@+id/register"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already a user? Login"
-        android:layout_marginTop="15dp"
-        android:id="@+id/login_user"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already a user?"
+                android:layout_marginTop="15dp"
+                android:id="@+id/login_user"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="login"
+                android:layout_marginTop="-20dp"
+                android:layout_marginLeft="70dp"
+                android:onClick="onClick"
+                android:clickable="true"
+                android:id="@+id/log"/>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

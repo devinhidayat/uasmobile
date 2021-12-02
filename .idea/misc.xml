@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/projectUas/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Github/projectUas/app/src/main/res/layout/activity_main.xml" value="0.234375" />
         <entry key="..\:/Github/projectUas/app/src/main/res/layout/activity_qr_code.xml" value="0.23777173913043478" />
-        <entry key="..\:/Github/projectUas/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Github/projectUas/app/src/main/res/layout/activity_register.xml" value="0.33557951482479786" />
         <entry key="..\:/Github/projectUas/app/src/main/res/layout/activity_transaksi.xml" value="0.234375" />
       </map>
     </option>
