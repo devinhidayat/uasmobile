@@ -44,7 +44,6 @@ public class register extends AppCompatActivity {
         register = findViewById(R.id.register);
         auth = FirebaseAuth.getInstance();
 
-
         Button showpassword = findViewById(R.id.showPass);
         showpassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +69,9 @@ public class register extends AppCompatActivity {
     private void validation(){
         String txt_email = email.getText().toString();
         String txt_password = password.getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
 
-        if(txt_email.isEmpty()) {
+        if(txt_email.isEmpty() && !txt_email.trim().matches(emailPattern)) {
             Toast toast = Toast.makeText(getApplicationContext(), "Enter email address", Toast.LENGTH_SHORT);
             toast.show();
         } else if(txt_password.length() < 6 && txt_password.isEmpty()) {
