@@ -1,8 +1,5 @@
 package id.ac.umn.hidayat.projectuas;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,6 +12,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.BarcodeFormat;
@@ -26,13 +27,13 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 
 public class qr_code extends AppCompatActivity {
+    private String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-//    FirebaseDatabase database;
-//    DatabaseReference myRef;
-//    TextView emailTextView;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+    TextView emailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +62,16 @@ public class qr_code extends AppCompatActivity {
                 String jam_checkin = time.format(d1);
                 String jam_checkout = "";
 
-//                database  = FirebaseDatabase.getInstance();
-//                myRef = database.getReference("User");
-//
-//                myRef.push().child("Jam Check-in").setValue(jam_checkin);
+                database  = FirebaseDatabase.getInstance();
+                myRef = database.getReference("User");
 
-                HashMap<String, Object> map = new HashMap<>();
-                map.put("Jam Check-in", jam_checkin);
-                map.put("Jam Check-out", jam_checkout);
+                String checkin = jam_checkin;
 
-                FirebaseDatabase.getInstance().getReference().child("User").push().updateChildren(map);
+                String currentuser = user;
+
+                data helperClass = new data (checkin, jam_checkout, currentuser);
+
+                myRef.child(currentuser).setValue(checkin);
 
                 String plat = et_plat.getText().toString().trim();
                 MultiFormatWriter writer = new MultiFormatWriter();
