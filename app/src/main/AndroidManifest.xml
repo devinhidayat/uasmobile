@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUas">
         <activity
-            android:name=".login"
+            android:name=".register"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
@@ -25,7 +25,7 @@
             android:name=".qr_code"
             android:exported="true" />
         <activity
-            android:name=".register"
+            android:name=".login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

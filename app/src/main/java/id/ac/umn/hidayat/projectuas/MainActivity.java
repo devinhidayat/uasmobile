@@ -16,8 +16,6 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-//    database db;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +23,6 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout qr_code = (LinearLayout) findViewById(R.id.qr_code);
         LinearLayout cameraView = (LinearLayout) findViewById(R.id.camera_view);
         LinearLayout transaksi = (LinearLayout) findViewById(R.id.transaksi);
-        LinearLayout register = (LinearLayout) findViewById(R.id.register);
-
-//        db = new database(this);
-        database g = new database(this);
-        SQLiteDatabase db = g.getReadableDatabase();
 
         qr_code.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,14 +48,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
-        register.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,register.class);
-                startActivity(intent);
-            }
-        }));
-
         TextView test = findViewById(R.id.date);
         Date d1 = Calendar.getInstance().getTime();
         SimpleDateFormat datenow = new SimpleDateFormat("EEEE, dd MMMM yyyy");
@@ -77,5 +62,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    
 }

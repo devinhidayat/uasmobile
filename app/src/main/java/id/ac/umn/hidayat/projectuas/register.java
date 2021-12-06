@@ -38,7 +38,6 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-//        nama = findViewById(R.id.nama);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
@@ -61,7 +60,6 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 validation();
-
             }
         });
     }
@@ -87,7 +85,7 @@ public class register extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(register.this, "Registering user successful", Toast.LENGTH_SHORT).show();
-                    Intent user = new Intent(register.this, MainActivity.class);
+                    Intent user = new Intent(register.this, login.class);
                     startActivity(user);
                 } else {
                     Toast.makeText(register.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -97,7 +95,7 @@ public class register extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        register_text = findViewById(R.id.log);
+        register_text = findViewById(R.id.login_user);
         register_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
