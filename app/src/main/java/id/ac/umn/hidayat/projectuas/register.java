@@ -20,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 
@@ -32,6 +35,9 @@ public class register extends AppCompatActivity {
     private Button register;
     private FirebaseAuth auth;
     TextView register_text;
+
+//    FirebaseDatabase database;
+//    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +65,13 @@ public class register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                database  = FirebaseDatabase.getInstance();
+//                myRef = database.getReference("Users");
+//
+//                UserHelperClass helperClass = new UserHelperClass();
+//
+//                myRef.setValue("");
+
                 validation();
             }
         });

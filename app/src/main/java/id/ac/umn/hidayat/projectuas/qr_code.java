@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -26,6 +28,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class qr_code extends AppCompatActivity {
+
+//    FirebaseDatabase database;
+//    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +56,15 @@ public class qr_code extends AppCompatActivity {
         btn_generate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Date d2 = Calendar.getInstance().getTime();
-                SimpleDateFormat time= new SimpleDateFormat("HH:mm");
-                String date3 = time.format(d2);
+                SimpleDateFormat time = new SimpleDateFormat("HH:mm");
+                String jam_checkin = time.format(d2);
+
+//                database  = FirebaseDatabase.getInstance();
+//                myRef = database.getReference("Users");
+//
+//                myRef.setValue(jam_checkin);
 
                 String plat = et_plat.getText().toString().trim();
                 MultiFormatWriter writer = new MultiFormatWriter();
