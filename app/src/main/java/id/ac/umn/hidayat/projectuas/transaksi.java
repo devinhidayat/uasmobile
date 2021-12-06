@@ -26,7 +26,7 @@ public class transaksi extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference myRef;
-    private TextView check_in;
+    public TextView check_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
