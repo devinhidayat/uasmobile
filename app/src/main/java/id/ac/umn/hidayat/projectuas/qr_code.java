@@ -26,21 +26,22 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class qr_code extends AppCompatActivity {
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
-    TextView emailTextView;
+//    FirebaseDatabase database;
+//    DatabaseReference myRef;
+//    TextView emailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
 
-        String email = getIntent().getStringExtra("email");
-        emailTextView = (TextView) findViewById(R.id.tvEmail);
-        emailTextView.setText(email);
+//        String email = getIntent().getStringExtra("email");
+//        emailTextView = (TextView) findViewById(R.id.tvEmail);
+//        emailTextView.setText(email);
 
         EditText et_plat = (EditText) findViewById(R.id.input_plat);
         Button btn_generate = (Button) findViewById(R.id.btn_generate);
@@ -50,26 +51,26 @@ public class qr_code extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.activity_back);
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(qr_code.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btn_generate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Date d2 = Calendar.getInstance().getTime();
+                Date d1 = Calendar.getInstance().getTime();
                 SimpleDateFormat time = new SimpleDateFormat("HH:mm");
-                String jam_checkin = time.format(d2);
+                String jam_checkin = time.format(d1);
+                String jam_checkout = "";
 
 //                database  = FirebaseDatabase.getInstance();
-//                myRef = database.getReference("Users");
+//                myRef = database.getReference("User");
 //
-//                myRef.child(email).child("Jam Check-in").setValue(jam_checkin);
+//                myRef.push().child("Jam Check-in").setValue(jam_checkin);
+
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("Jam Check-in", jam_checkin);
+                map.put("Jam Check-out", jam_checkout);
+
+                FirebaseDatabase.getInstance().getReference().child("User").push().updateChildren(map);
 
                 String plat = et_plat.getText().toString().trim();
                 MultiFormatWriter writer = new MultiFormatWriter();
@@ -86,6 +87,16 @@ public class qr_code extends AppCompatActivity {
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
+
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(qr_code.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }

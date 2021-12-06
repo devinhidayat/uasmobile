@@ -66,6 +66,15 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 validation();
+                database  = FirebaseDatabase.getInstance();
+                myRef = database.getReference("User");
+
+                String regEmail = email.getText().toString();
+                String regPassword = password.getText().toString();
+
+                User helperClass = new User (regPassword, regEmail);
+
+                myRef.push().child("userdata").setValue(helperClass);
             }
         });
     }

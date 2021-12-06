@@ -60,7 +60,7 @@ public class login extends AppCompatActivity {
                 } else if(txt_password.length() < 6 && txt_password.isEmpty()) {
                     Toast.makeText(login.this, "Password too short", Toast.LENGTH_SHORT).show();
                 } else {
-                    FirebaseDatabase.getInstance().getReference().child("Users").push().child("Email").setValue(txt_email);
+//                    FirebaseDatabase.getInstance().getReference().child("Users").push().child("Email").setValue(txt_email);
 
                     loginUser(txt_email , txt_password);
                 }
