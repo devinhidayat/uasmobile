@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -60,7 +61,6 @@ public class qr_code extends AppCompatActivity {
                 Date d1 = Calendar.getInstance().getTime();
                 SimpleDateFormat time = new SimpleDateFormat("HH:mm");
                 String jam_checkin = time.format(d1);
-                String jam_checkout = "";
 
                 database  = FirebaseDatabase.getInstance();
                 myRef = database.getReference("User");
@@ -69,9 +69,12 @@ public class qr_code extends AppCompatActivity {
 
                 String currentuser = user;
 
-                data helperClass = new data (checkin, jam_checkout, currentuser);
-
-                myRef.child(currentuser).setValue(checkin);
+                myRef.child(currentuser).setValue(checkin).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        //success
+                    }
+                });
 
                 String plat = et_plat.getText().toString().trim();
                 MultiFormatWriter writer = new MultiFormatWriter();

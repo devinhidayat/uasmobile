@@ -23,7 +23,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView emailTextView, checkinTextView;
+    TextView emailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,6 @@ public class MainActivity extends AppCompatActivity {
         String email = getIntent().getStringExtra("email");
         emailTextView = (TextView) findViewById(R.id.tvEmail);
         emailTextView.setText(email);
-
-//        String checkin = getIntent().getStringExtra("checkin");
-//        checkinTextView = (TextView) findViewById(R.id.tvCheckin);
-//        checkinTextView.setText(checkin);
-
-//        String et_checkin = jam_checkin;
-//        intent.putExtra("checkin", et_checkin);
 
         TextView test = findViewById(R.id.date);
         Date d1 = Calendar.getInstance().getTime();
