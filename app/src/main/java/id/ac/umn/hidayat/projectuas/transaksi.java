@@ -1,14 +1,14 @@
 package id.ac.umn.hidayat.projectuas;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -44,6 +44,8 @@ public class transaksi extends AppCompatActivity {
         String hour1 = hour.format(d2);
         String date3 = time.format(d2);
         check_out.setText(date3);
+
+
 
         int jam_check_out = Integer.parseInt(hour1);
         // int timeDiff = jam_check_out - jam_check_in;

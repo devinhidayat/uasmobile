@@ -1,30 +1,24 @@
 package id.ac.umn.hidayat.projectuas;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 
 
 public class register extends AppCompatActivity {
@@ -32,6 +26,7 @@ public class register extends AppCompatActivity {
 //    private EditText nama;
     private EditText email;
     private EditText password;
+    private String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
     private Button register;
     private FirebaseAuth auth;
     TextView register_text;
@@ -72,9 +67,11 @@ public class register extends AppCompatActivity {
                 String regEmail = email.getText().toString();
                 String regPassword = password.getText().toString();
 
-                User helperClass = new User (regPassword, regEmail);
+                String currentuser = user;
 
-                myRef.push().child("userdata").setValue(helperClass);
+                User helperClass = new User (regPassword, regEmail, currentuser);
+
+                myRef.child(currentuser).setValue(helperClass);
             }
         });
     }

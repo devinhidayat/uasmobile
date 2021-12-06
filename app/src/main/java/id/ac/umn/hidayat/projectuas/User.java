@@ -4,14 +4,16 @@ public class User {
 
     public String regPassword;
     public String regEmail;
+    public String currentuser ;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String regPassword, String regEmail) {
+    public User(String regPassword, String regEmail, String currentuser) {
         this.regPassword = regPassword;
         this.regEmail = regEmail;
+        this.currentuser = currentuser;
     }
 
     public String getRegPassword() {
