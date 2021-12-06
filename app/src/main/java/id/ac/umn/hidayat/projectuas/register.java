@@ -36,8 +36,8 @@ public class register extends AppCompatActivity {
     private FirebaseAuth auth;
     TextView register_text;
 
-//    FirebaseDatabase database;
-//    DatabaseReference myRef;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +65,6 @@ public class register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                database  = FirebaseDatabase.getInstance();
-//                myRef = database.getReference("Users");
-//
-//                UserHelperClass helperClass = new UserHelperClass();
-//
-//                myRef.setValue("");
-
                 validation();
             }
         });
@@ -88,6 +81,8 @@ public class register extends AppCompatActivity {
         } else if(txt_password.length() < 6 && txt_password.isEmpty()) {
             Toast.makeText(register.this, "Password too short", Toast.LENGTH_SHORT).show();
         } else {
+//            FirebaseDatabase.getInstance().getReference().child("Users").push().child("Email").setValue(txt_email);
+
             registerUser(txt_email, txt_password);
         }
     }

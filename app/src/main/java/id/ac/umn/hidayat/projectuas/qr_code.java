@@ -29,13 +29,18 @@ import java.util.Date;
 
 public class qr_code extends AppCompatActivity {
 
-//    FirebaseDatabase database;
-//    DatabaseReference myRef;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+    TextView emailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
+
+        String email = getIntent().getStringExtra("email");
+        emailTextView = (TextView) findViewById(R.id.tvEmail);
+        emailTextView.setText(email);
 
         EditText et_plat = (EditText) findViewById(R.id.input_plat);
         Button btn_generate = (Button) findViewById(R.id.btn_generate);
@@ -64,7 +69,7 @@ public class qr_code extends AppCompatActivity {
 //                database  = FirebaseDatabase.getInstance();
 //                myRef = database.getReference("Users");
 //
-//                myRef.setValue(jam_checkin);
+//                myRef.child(email).child("Jam Check-in").setValue(jam_checkin);
 
                 String plat = et_plat.getText().toString().trim();
                 MultiFormatWriter writer = new MultiFormatWriter();

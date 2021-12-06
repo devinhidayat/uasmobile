@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class login extends AppCompatActivity {
 
@@ -59,6 +60,8 @@ public class login extends AppCompatActivity {
                 } else if(txt_password.length() < 6 && txt_password.isEmpty()) {
                     Toast.makeText(login.this, "Password too short", Toast.LENGTH_SHORT).show();
                 } else {
+                    FirebaseDatabase.getInstance().getReference().child("Users").push().child("Email").setValue(txt_email);
+
                     loginUser(txt_email , txt_password);
                 }
             }
@@ -72,6 +75,8 @@ public class login extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Toast.makeText(login.this, "Login successful!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(login.this , MainActivity.class);
+                    String et_email = email;
+                    intent.putExtra("email", et_email);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
