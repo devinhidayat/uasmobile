@@ -47,9 +47,9 @@ public class transaksi extends AppCompatActivity {
 
         TextView check_in = (TextView) findViewById(R.id.check_in);
         check_in.setText(MainActivity.getValue());
-//        String jam = String.valueOf(check_in);
-//        String[] parts = jam.split(":");
-//        String jam_checkin = parts[0];
+        String jam = check_in.getText().toString();
+        String[] parts = jam.split(":");
+        String jam_checkin = parts[0];
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.activity_back);
@@ -73,9 +73,8 @@ public class transaksi extends AppCompatActivity {
 //        FirebaseDatabase.getInstance().getReference("User").push().updateChildren(map);
 
         int jam_check_out = Integer.parseInt(hour1);
-//        int jam_check_in = Integer.parseInt(jam_checkin);
-//        int timeDiff = jam_check_out - jam_check_in;
-        int timeDiff = jam_check_out - jam_check_out;
+        int jam_check_in = Integer.parseInt(jam_checkin);
+        int timeDiff = jam_check_out - jam_check_in;
         int payment = 3000 + (timeDiff * 2000);
         total.setText("Rp. "+String.valueOf(payment));
 
