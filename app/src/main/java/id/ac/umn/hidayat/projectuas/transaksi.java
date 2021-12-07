@@ -21,11 +21,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class transaksi extends AppCompatActivity {
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
+//    FirebaseDatabase database;
+//    DatabaseReference myRef;
     private TextView check_in;
 
     @Override
@@ -33,7 +34,6 @@ public class transaksi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaksi);
 
-        check_in = findViewById(R.id.check_in);
         TextView check_out = (TextView) findViewById(R.id.check_out);
         TextView total = (TextView) findViewById(R.id.total);
         Button bayar = (Button) findViewById(R.id.bayar);
@@ -44,6 +44,10 @@ public class transaksi extends AppCompatActivity {
         String hour1 = hour.format(d2);
         String date3 = time.format(d2);
         check_out.setText(date3);
+
+        TextView check_in = (TextView) findViewById(R.id.check_in);
+        check_in.setText(MainActivity.getValue());
+//        String hour2 = check_in;
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.activity_back);
@@ -57,39 +61,27 @@ public class transaksi extends AppCompatActivity {
             }
         });
 
-        database  = FirebaseDatabase.getInstance();
-        myRef = database.getReference("User");
+//        database  = FirebaseDatabase.getInstance();
+//        myRef = database.getReference("User");
 
-        getdata();
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("Jam Check-in", check_in);
+//        map.put("Jam Check-out", check_out);
+//
+//        FirebaseDatabase.getInstance().getReference("User").push().updateChildren(map);
 
         int jam_check_out = Integer.parseInt(hour1);
-        // int timeDiff = jam_check_out - jam_check_in;
-        // int payment = 3000 + (timeDiff * 2000);
-        // total.setText("Rp. "+String.valueOf(payment));
-    }
+//        int jam_check_in = Integer.parseInt(check_in);
+        int timeDiff = jam_check_out - jam_check_out;
+        int payment = 3000 + (timeDiff * 2000);
+        total.setText("Rp. "+String.valueOf(payment));
 
-    private void getdata() {
-        myRef.addValueEventListener(new ValueEventListener() {
+        bayar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // this method is call to get the realtime
-                // updates in the data.
-                // this method is called when the data is
-                // changed in our Firebase console.
-                // below line is for getting the data from
-                // snapshot of our database.
-                String value = snapshot.getValue(String.class);
-
-                // after getting the value we are setting
-                // our value to our text view in below line.
-                check_in.setText(value);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // calling on cancelled method when we receive
-                // any error or we are not able to get the data.
-                Toast.makeText(transaksi.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                Intent intent = new Intent (transaksi.this,MainActivity.class);
+                Toast.makeText(transaksi.this, "Pembayaran berhasil!", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
     }

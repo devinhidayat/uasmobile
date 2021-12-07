@@ -25,14 +25,28 @@ public class MainActivity extends AppCompatActivity {
 
     TextView emailTextView;
 
+    private static String value;
+    public static String getValue() {
+        return value;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final TextView editText = findViewById(R.id.time);
+
         String email = getIntent().getStringExtra("email");
         emailTextView = (TextView) findViewById(R.id.tvEmail);
         emailTextView.setText(email);
+
+//        String checkin = getIntent().getStringExtra("checkin");
+//        checkinTextView = (TextView) findViewById(R.id.tvCheckin);
+//        checkinTextView.setText(checkin);
+
+//        String et_checkin = jam_checkin;
+//        intent.putExtra("checkin", et_checkin);
 
         TextView test = findViewById(R.id.date);
         Date d1 = Calendar.getInstance().getTime();
@@ -81,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         transaksi.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                value = test1.getText().toString().trim();
                 Intent intent = new Intent(MainActivity.this,transaksi.class);
                 startActivity(intent);
             }

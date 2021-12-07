@@ -36,6 +36,11 @@ public class qr_code extends AppCompatActivity {
     DatabaseReference myRef;
     TextView emailTextView;
 
+//    private static String value;
+//    public static String getValue() {
+//        return value;
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
